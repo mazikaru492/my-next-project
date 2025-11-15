@@ -1,8 +1,54 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 
+type News = {
+  id: number;
+  title: string;
+  category: string;
+  categoryColor: {
+    name: string;
+  };
+  publishedAt: string;
+  creetedAt: string;
+};
+
+const data: {
+  contents: News[] } = {
+    contents: [
+      {
+        id: "1",
+        title: 
+        "渋谷にオフィスを移転しました",
+        category: {
+          name:"更新情報"
+        },
+        publishedAt: "2023/05/19",
+        createdAt: "2023/05/19",
+      },
+      {
+        id: "2",
+        title: "当社のCEOが業界のリーダーTOP30に選出されました",
+        category: {
+          name: "更新情報"
+        },
+        publishedAt: "2023/04/19",
+        createdAt: "2023/04/19",
+    },
+    {
+      id: "3",
+      title: "テストの記事です",
+      category: {
+        name: "更新情報"
+      },
+      publishedAt: "2023/04/19",
+      createdAt: "2023/04/19",
+    },
+  ],
+};
+
 export default function Home() {
   return (
+    <>
     <section className={styles.top}>
       <div>
         <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
@@ -17,5 +63,41 @@ export default function Home() {
         height={1200}
       />
     </section>
+    <section className={styles.news}>
+      <h2 className={styles.newsTitle}>News</h2>
+      <ul>
+        {data.contents.map((article) => (
+          <li key={article.id} className={styles.newsItem}>
+            <div className={styles.link}>
+              <Image
+                className={styles.image}
+                src="/no-image.png"
+                alt="No Image"
+                width={1200}
+                height={630}
+              />
+              <div className={styles.contents}>
+                <dt className={styles.newsItemTitle}>
+                  {article.title}</dt>
+                  <dd className={styles.meta}>
+                    <span className={styles.tag}>
+                      {article.category.name}</span>
+                    <span className={styles.date}>
+                      <Image
+                        src="/clock.svg"
+                        alt=""
+                        width={16}
+                        height={16}
+                      />
+                      {article.publishedAt}
+                    </span>
+                  </dd>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+    </.>  
   );
 }
