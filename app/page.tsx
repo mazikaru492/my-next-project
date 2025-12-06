@@ -1,16 +1,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import ButtonLink from "@/app/components/ButtonLink";
-
-type News = {
-  id: string;
-  title: string;
-  category: {
-    name: string;
-  };
-  publishedAt: string;
-  createdAt: string;
-};
+import { News } from "@/app/lids/microcms";
 
 const data: {
   contents: News[];
@@ -47,7 +38,8 @@ const data: {
 };
 
 export default function Home() {
-  const sliceData = data.contents.slice(0, 2);
+  //const sliceData = data.contents.slice(0, 2);
+  const sliceData: News = [];
   return (
     <>
       <section className={styles.top}>

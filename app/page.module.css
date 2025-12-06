@@ -68,6 +68,13 @@
     width: calc(100% - 32px);
     padding: 16px 24px;
   }
+
+  .newsLink {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 16px;
+  }
 }
 
 .news {
@@ -82,6 +89,11 @@
 
 .newsTitle {
   font-size: 1.5rem;
+}
+.newsLink {
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
 }
 
 .list {
