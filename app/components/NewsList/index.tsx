@@ -1,7 +1,7 @@
 import Image from "next/image";
 import style from "./index.module.css";
-import Category from "../../Category";
-import Data from "../../Data";
+import Category from "../Category";
+import Data from "../Data";
 import { News } from "@/app/lids/microcms";
 
 type Props = {

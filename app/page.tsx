@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import Image from "next/image";
-import NewsList from "@/app/components/ButtonLink/NewsList";
+import NewsList from "@/app/components/NewsList";
 import ButtonLink from "@/app/components/ButtonLink";
 import { News } from "@/app/lids/microcms";
 
