@@ -1,5 +1,6 @@
 import Image from "next/image";
 import style from "./index.module.css";
+
 export default function Header() {
   return (
     <header className={style.header}>
@@ -8,8 +9,8 @@ export default function Header() {
           src="/logo.svg"
           alt="SIMPLE"
           className={style.logo}
-          width={348}
-          height={133}
+          width={180}
+          height={62}
           priority
         />
       </a>

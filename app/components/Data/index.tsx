@@ -5,7 +5,7 @@ type Props = {
   data: string;
 };
 export default function Data({ data }: Props) {
-  retun(
+  return (
     <span className={style.data}>
       <Image src="/clock.svg" alt="" width={16} height={16} loading="eager" />
       {data}
