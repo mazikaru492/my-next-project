@@ -1,3 +1,7 @@
+export type category = {
+  name: string;
+};
+
 export type News = {
   id: string;
   title: string;

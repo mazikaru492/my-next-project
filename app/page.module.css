@@ -6,7 +6,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   overflow: hidden;
-  padding: 200px;
+  padding: 200px 0px;
 }
 
 .title {
@@ -81,9 +81,8 @@
   position: relative;
   background-color: #fff;
   width: 840px;
-  margin: -40px auto 0;
+  margin: 24px auto 0;
   padding: 24px 40px;
-  border: 24px 40px;
   border-radius: var(--border-radius);
 }
 
@@ -91,9 +90,10 @@
   font-size: 1.5rem;
 }
 .newsLink {
-  position: absolute;
-  right: -40px;
-  bottom: -40px;
+  position: static;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
 }
 @media (max-width: 1000px) {
   .news {
