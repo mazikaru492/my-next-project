@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import style from "./index.module.css";
 import Category from "../Category";
 import Data from "../Data";
@@ -16,7 +17,7 @@ export default function NewsList({ news }: Props) {
     <ul>
       {news.map((article) => (
         <li key={article.id} className={style.newsItem}>
-          <div className={style.link}>
+          <Link href={`/news/${article.id}`} className={style.link}>
             <Image
               className={style.image}
               src="/no-image.png"
@@ -31,7 +32,7 @@ export default function NewsList({ news }: Props) {
                 <Data data={article.publishedAt ?? article.createdAt} />
               </dd>
             </dl>
-          </div>
+          </Link>
         </li>
       ))}
     </ul>
