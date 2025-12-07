@@ -1,3 +1,7 @@
+.nav {
+  pointer-events: auto;
+}
+
 .items {
   display: flex;
   color: #fff;
