@@ -20,8 +20,8 @@ export type News = {
   title: string;
   description: string;
   content: string;
-  thumbunail: MicroCMSImage;
-  categories: Category;
+  thumbnail?: MicroCMSImage;
+  category?: Category;
 } & MicroCMSListContent;
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error("MICROCMS_SERVICE_DOMAIN is required");
@@ -40,7 +40,7 @@ export const getMembers = async (queries?: MicroCMSQueries) => {
   });
   return listData;
 };
-export const getNews = async (queries?: MicroCMSQueries) => {
+export const getNewsList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<News>({
     endpoint: "news",
     queries,

@@ -28,7 +28,7 @@ export default function NewsList({ news }: Props) {
               />
             ) : (
               <Image
-                classNamae={style.image}
+                className={style.image}
                 src="/no-image.png"
                 alt="no image"
                 width={1200}
@@ -38,7 +38,7 @@ export default function NewsList({ news }: Props) {
             <dl className={style.contents}>
               <dt className={style.title}>{article.title}</dt>
               <dd className={style.meta}>
-                <Category category={article.category} />
+                {article.category && <Category category={article.category} />}
                 <Data data={article.publishedAt ?? article.createdAt} />
               </dd>
             </dl>
