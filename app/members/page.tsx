@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getMembers } from "@/app/lids/microcms";
+import { MEMBERS_LIST_LIMIT } from "@/app/constants";
 import style from "./page.module.css";
 import Hero from "@/app/components/Hero";
 
@@ -7,7 +8,7 @@ import Hero from "@/app/components/Hero";
 export const revalidate = 10; // seconds
 
 export default async function MembersPage() {
-  const data = await getMembers();
+  const data = await getMembers({ limit: MEMBERS_LIST_LIMIT });
   return (
     <div>
       <Hero title="メンバー" sub="チーム紹介" />
