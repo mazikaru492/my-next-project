@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import style from "./index.module.css";
 import { News } from "@/app/lids/microcms";
@@ -14,7 +15,12 @@ export default function article({ date }: Props) {
       <h1 className={style.title}>{date.title}</h1>
       <p className={style.description}>{date.description}</p>
       <div className={style.meta}>
-        <Category category={date.category} />
+        <Link
+          href={`/news/category/${date.category.id}`}
+          className={style.categoryLink}
+        >
+          <Category category={date.category} />
+        </Link>
         <Date data={date.publishedAt ?? date.createdAt} />
       </div>
       {date.thumbnail && (
