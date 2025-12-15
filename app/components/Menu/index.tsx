@@ -6,12 +6,12 @@ import cx from "classnames";
 import style from "./index.module.css";
 
 export default function Menu() {
-  const [is0pen, set0pen] = useState<boolean>(false);
-  const open = () => set0pen(true);
-  const close = () => set0pen(false);
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const open = () => setOpen(true);
+  const close = () => setOpen(false);
   return (
     <div>
-      <nav className={cx(style.nav, is0pen && style.opne)}>
+      <nav className={cx(style.nav, isOpen && style.open)}>
         <ul className={style.items}>
           <li>
             <Link href="/news">ニュース</Link>
@@ -23,7 +23,7 @@ export default function Menu() {
             <Link href="/contact">お問い合わせ</Link>
           </li>
         </ul>
-        <button className={cx(style.bootton, style.close)} onClick={close}>
+        <button className={cx(style.button, style.close)} onClick={close}>
           <Image
             src="/close.svg"
             alt="閉じる"
@@ -33,7 +33,7 @@ export default function Menu() {
           />
         </button>
       </nav>
-      <button className={style.button}>
+      <button className={style.button} onClick={open}>
         <Image src="/menu.svg" alt="メニュー" width={24} height={24} />
       </button>
     </div>
