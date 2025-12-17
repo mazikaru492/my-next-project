@@ -6,35 +6,37 @@ import Date from "../Data";
 import Category from "../Category";
 
 type Props = {
-  date: News;
+  data: News;
 };
 
-export default function article({ date }: Props) {
+export default function Article({ data }: Props) {
   return (
     <main>
-      <h1 className={style.title}>{date.title}</h1>
-      <p className={style.description}>{date.description}</p>
+      <h1 className={style.title}>{data.title}</h1>
+      <p className={style.description}>{data.description}</p>
       <div className={style.meta}>
-        <Link
-          href={`/news/category/${date.category?.id}`}
-          className={style.categoryLink}
-        >
-          <Category category={date.category} />
-        </Link>
-        <Date data={date.publishedAt ?? date.createdAt} />
+        {data.category && (
+          <Link
+            href={`/news/category/${data.category.id}`}
+            className={style.categoryLink}
+          >
+            <Category category={data.category} />
+          </Link>
+        )}
+        <Date data={data.publishedAt ?? data.createdAt} />
       </div>
-      {date.thumbnail && (
+      {data.thumbnail && (
         <Image
-          src={date.thumbnail.url}
+          src={data.thumbnail.url}
           alt=""
           className={style.thumbnail}
-          width={date.thumbnail.width}
-          height={date.thumbnail.height}
+          width={data.thumbnail.width}
+          height={data.thumbnail.height}
         />
       )}
       <div
         className={style.content}
-        dangerouslySetInnerHTML={{ __html: date.content }}
+        dangerouslySetInnerHTML={{ __html: data.content }}
       />
     </main>
   );
