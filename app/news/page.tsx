@@ -3,8 +3,6 @@ import NewsList from "@/app/components/NewsList";
 import Pagenation from "@/app/components/Pagination";
 import { NEWS_LIST_LIMIT } from "@/app/constants";
 
-export const revalidate = 60;
-
 export default async function Page() {
   const { contents: news, totalCount } = await getNewsList({
     limit: NEWS_LIST_LIMIT,
