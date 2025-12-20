@@ -1,6 +1,6 @@
 import { createNextAuthMiddleware } from "nextjs-basic-auth-middleware";
 
-export const middleware = createNextAuthMiddleware();
+export default createNextAuthMiddleware();
 export const config = {
   matcher: ["/(.*)"],
 };
