@@ -57,7 +57,7 @@ export const getNewsDetail = async (
     queries,
     customRequestInit: {
       next: {
-        revalidate: queries?.draftkey === undefined ? 60 : 0,
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
       },
     },
   });
