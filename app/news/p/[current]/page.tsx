@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getNewsList } from "@/app/lids/microcms";
 import NewsList from "@/app/components/NewsList";
+import Pagination from "@/app/components/Pagination";
 import { NEWS_LIST_LIMIT } from "@/app/constants";
 
 type Props = {
@@ -14,7 +15,7 @@ export default async function Page({ params }: Props) {
   if (Number.isNaN(current) || current < 1) {
     notFound();
   }
-  const { contents: news } = await getNewsList({
+  const { contents: news, totalCount } = await getNewsList({
     limit: NEWS_LIST_LIMIT,
     offset: NEWS_LIST_LIMIT * (current - 1),
   });
@@ -22,5 +23,10 @@ export default async function Page({ params }: Props) {
   if (news.length === 0) {
     notFound();
   }
-  return <NewsList news={news} />;
+  return (
+    <>
+      <NewsList news={news} />
+      <Pagination totalCount={totalCount} current={current} />
+    </>
+  );
 }
