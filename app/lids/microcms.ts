@@ -67,7 +67,7 @@ export const getCategories = async (queries?: MicroCMSQueries) => {
   return listData;
 };
 
-export const getCategorise = async (
+export const getCategoryDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
@@ -78,3 +78,6 @@ export const getCategorise = async (
   });
   return detailData;
 };
+
+// 互換用エイリアス
+export const getCategorise = getCategoryDetail;
