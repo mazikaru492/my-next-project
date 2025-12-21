@@ -1,6 +1,6 @@
 "use client";
 
-import { createContactData } from "@/app/_actions/contact";
+import { createContactData } from "@/app/actions/contact";
 import { useFormState } from "react-dom";
 import { sendGAEvent } from "@next/third-parties/google";
 import styles from "./index.module.css";

@@ -2,13 +2,19 @@
   "name": "my-next-project",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20 <23"
+  },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --disable-source-maps",
+    "dev:webpack": "next dev --webpack --disable-source-maps",
+    "dev:turbo": "next dev --turbo --disable-source-maps",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@next/third-parties": "^16.1.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "microcms-js-sdk": "^3.1.0",

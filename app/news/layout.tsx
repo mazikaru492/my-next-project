@@ -1,4 +1,5 @@
 import Hero from "@/app/components/Hero";
+import SearchField from "@/app/components/SearchField";
 import Sheet from "@/app/components/sheet";
 
 export const revalidate = 60;
@@ -11,7 +12,10 @@ export default function NewsLayout({ children }: Props) {
   return (
     <>
       <Hero title="News" sub="ニュース" />
-      <Sheet>{children}</Sheet>
+      <Sheet>
+        <SearchField />
+        {children}
+      </Sheet>
     </>
   );
 }

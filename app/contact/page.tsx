@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import ContactForm from "@/app/components/ContactForm";
+import HubSpotForm from "@/app/components/HubSpotForm";
 
 export default function Page() {
   return (
@@ -9,7 +9,11 @@ export default function Page() {
         <br />
         内容確認後、担当者より通常3営業以内にご連絡いたします。
       </p>
-      <ContactForm />
+      <HubSpotForm
+        portalId="244676217"
+        formId="f8ec7adb-b284-4076-93ac-188f9fd44fe1"
+        region="na2"
+      />
     </div>
   );
 }
