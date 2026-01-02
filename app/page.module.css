@@ -79,7 +79,7 @@
 
 .news {
   position: relative;
-  background-color: #fff;
+  background-color: var(--color-bg-sub);
   width: 840px;
   margin: 24px auto 0;
   padding: 24px 40px;
