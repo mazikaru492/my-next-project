@@ -1,10 +1,12 @@
 .container {
   padding: 40px 20px;
+  color: var(--color-text-unpainted);
 }
 
 .text {
   text-align: center;
   margin-bottom: 40px;
+  color: var(--color-text-unpainted);
 }
 
 @media (max-width: 640px) {

@@ -6,21 +6,7 @@ import {
 } from "@/app/lids/github";
 
 function getJapaneseMonthLabel(monthIndex: number): string {
-  const labels = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  return labels[monthIndex] ?? "";
+  return `${monthIndex + 1}月`;
 }
 
 function getLevelForCount(count: number): 0 | 1 | 2 | 3 | 4 {
@@ -83,16 +69,17 @@ export default async function GitHubContributions({
 
     return (
       <section className={styles.container}>
-        <h2 className={styles.title}>GitHubへの貢献</h2>
+        <h2 className={styles.title}>GitHubのコントリビューション</h2>
         <p className={styles.meta}>
-          GitHubの貢献状況（取得には `GITHUB_TOKEN` の設定が推奨）
+          詳細表示には <code>GITHUB_TOKEN</code>{" "}
+          の設定が必要です（未設定の場合は簡易表示になります）。
         </p>
         <div className={styles.graphWrap}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className={styles.fallbackImg}
             src={chartUrl}
-            alt={`${resolvedLogin} のGitHub貢献`}
+            alt={`${resolvedLogin} の GitHub コントリビューション`}
             loading="lazy"
             referrerPolicy="no-referrer"
           />
@@ -105,9 +92,9 @@ export default async function GitHubContributions({
 
   return (
     <section className={styles.container}>
-      <h2 className={styles.title}>GitHubへの貢献</h2>
+      <h2 className={styles.title}>GitHubのコントリビューション</h2>
       <p className={styles.meta}>
-        GitHubで{year}年に{calendar.totalContributions}件の貢献がありました。
+        {year}年のコントリビューションは {calendar.totalContributions} 回です。
       </p>
 
       <div className={styles.graphWrap}>
@@ -125,18 +112,18 @@ export default async function GitHubContributions({
         <div className={styles.gridRow}>
           <div className={styles.weekdayCol} aria-hidden>
             <div className={styles.weekday}></div>
-            <div className={styles.weekday}>Mon</div>
+            <div className={styles.weekday}>月</div>
             <div className={styles.weekday}></div>
-            <div className={styles.weekday}>Wed</div>
+            <div className={styles.weekday}>水</div>
             <div className={styles.weekday}></div>
-            <div className={styles.weekday}>Fri</div>
+            <div className={styles.weekday}>金</div>
             <div className={styles.weekday}></div>
           </div>
 
           <div
             className={styles.grid}
             role="img"
-            aria-label={`${resolvedLogin} の ${year} 年GitHub貢献カレンダー`}
+            aria-label={`${resolvedLogin} の ${year} 年の GitHub コントリビューション カレンダー`}
           >
             {calendar.weeks.flatMap((week, weekIndex) =>
               week.contributionDays.map((day, dayIndex) => (
@@ -144,7 +131,7 @@ export default async function GitHubContributions({
                   key={`${weekIndex}-${dayIndex}`}
                   className={styles.day}
                   data-level={getLevelForCount(day.contributionCount)}
-                  title={`${day.date}: ${day.contributionCount}件`}
+                  title={`${day.date}: ${day.contributionCount}回`}
                 />
               ))
             )}
@@ -162,7 +149,7 @@ export default async function GitHubContributions({
               />
             ))}
           </div>
-          <span>もっと</span>
+          <span>多い</span>
         </div>
       </div>
     </section>
