@@ -4,6 +4,7 @@ import { getNewsList } from "@/app/lids/microcms";
 import { TOP_NEWS_LIMIT } from "@/app/constants";
 import NewsList from "@/app/components/NewsList";
 import ButtonLink from "@/app/components/ButtonLink";
+import GitHubContributions from "@/app/components/GitHubContributions";
 
 export const revalidate = 60;
 
@@ -35,6 +36,7 @@ export default async function Home() {
           <ButtonLink href="/news">もっと見る</ButtonLink>
         </div>
       </section>
+      <GitHubContributions />
     </>
   );
 }
