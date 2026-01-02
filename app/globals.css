@@ -1,11 +1,14 @@
 :root {
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia  Mono", "Segoe  UI Mono", "Roboto  Mono", "Oxygen  Mono", "Ubuntu  Monospace", "Source  Code Pro", "Fira  Mono", "Droid  Sans  Mono", "Courier  New", monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia  Mono", "Segoe  UI Mono",
+    "Roboto  Mono", "Oxygen  Mono", "Ubuntu  Monospace", "Source  Code Pro",
+    "Fira  Mono", "Droid  Sans  Mono", "Courier  New", monospace;
   --color-text-main: #f2f2f2;
   --color-text-sub: #b5b5b5;
   --color-text-unpainted: #fff;
   --color-text-error: rgb(255, 255, 255);
   --color-bg-main: #0b0b0b;
   --color-bg-sub: #141414;
+  --color-bg-overlay: rgba(0, 0, 0, 0.65);
   --color-bg-code: #111;
   --color-bg-painted: #fff;
   --color-border-dark: #3a3a3a;
@@ -29,16 +32,16 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Yugohtic, 
-  "ヒラギノ角ゴ ProN W3", hiragino kaku Gothic ProN, Arial, "メイリオ", meiryo, 
-  sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Yugohtic,
+    "ヒラギノ角ゴ ProN W3", hiragino kaku Gothic ProN, Arial, "メイリオ", meiryo,
+    sans-serif;
   color: var(--color-text-main);
   background-color: var(--color-bg-main);
   line-height: 1.8;
 }
 
 code {
-  font-family: menlo,inconsolata,monospace;
+  font-family: menlo, inconsolata, monospace;
 }
 
 a {
@@ -50,4 +53,3 @@ ol,
 ul {
   list-style: none;
 }
-

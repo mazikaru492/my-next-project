@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-bg-overlay);
   color: #fff;
   overflow: hidden;
   padding: 100px 0px;
@@ -43,6 +43,7 @@
   width: 100%;
   object-fit: cover;
   object-position: right;
+  opacity: 0.3;
   display: flex;
   align-items: center;
   justify-content: center;
