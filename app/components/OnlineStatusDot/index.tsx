@@ -10,15 +10,49 @@ export default function OnlineStatusDot({ className }: Props) {
   const [online, setOnline] = useState(true);
 
   useEffect(() => {
-    const update = () => setOnline(navigator.onLine);
+    const checkInternet = async () => {
+      // まずはブラウザの即時フラグで判定
+      if (!navigator.onLine) {
+        setOnline(false);
+        return;
+      }
 
-    update();
-    window.addEventListener("online", update);
-    window.addEventListener("offline", update);
+      // LANは繋がっていてもインターネット断が起きる環境があるため疎通チェック
+      // 3rd-party へ定期アクセスしないため、自サイトの /api/ping を叩く
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 2500);
+      try {
+        await fetch("/api/ping", {
+          method: "GET",
+          cache: "no-store",
+          signal: controller.signal,
+        });
+        setOnline(true);
+      } catch {
+        setOnline(false);
+      } finally {
+        window.clearTimeout(timeoutId);
+      }
+    };
+
+    const handleBrowserStatusChange = () => {
+      // online/offline イベントでは即時反映、その後疎通で確定
+      void checkInternet();
+    };
+
+    void checkInternet();
+    window.addEventListener("online", handleBrowserStatusChange);
+    window.addEventListener("offline", handleBrowserStatusChange);
+
+    // 念のため定期チェック（イベントが発火しない環境対策）
+    const intervalId = window.setInterval(() => {
+      void checkInternet();
+    }, 10_000);
 
     return () => {
-      window.removeEventListener("online", update);
-      window.removeEventListener("offline", update);
+      window.clearInterval(intervalId);
+      window.removeEventListener("online", handleBrowserStatusChange);
+      window.removeEventListener("offline", handleBrowserStatusChange);
     };
   }, []);
 

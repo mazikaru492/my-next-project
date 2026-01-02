@@ -59,8 +59,37 @@
   border: 3px solid rgba(0, 0, 0, 0.85);
 }
 
+.statusBadge[data-online="true"]::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(16, 185, 129, 0.55);
+  animation: statusPulse 1.6s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes statusPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
 .statusBadge[data-online="false"] {
   background: rgba(255, 255, 255, 0.25);
+}
+
+.statusBadge[data-online="false"]::after {
+  content: none;
 }
 
 .textContent {

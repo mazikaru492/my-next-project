@@ -94,6 +94,7 @@ export default async function GitHubContributions({
             src={chartUrl}
             alt={`${resolvedLogin} のGitHub貢献`}
             loading="lazy"
+            referrerPolicy="no-referrer"
           />
         </div>
       </section>
