@@ -1,10 +1,10 @@
 import styles from "./page.module.css";
-import Image from "next/image";
 import { getNewsList } from "@/app/lids/microcms";
 import { TOP_NEWS_LIMIT } from "@/app/constants";
 import NewsList from "@/app/components/NewsList";
 import ButtonLink from "@/app/components/ButtonLink";
 import GitHubContributions from "@/app/components/GitHubContributions";
+import Profile from "@/app/components/Profile";
 
 export const revalidate = 60;
 
@@ -14,21 +14,8 @@ export default async function Home() {
   });
   return (
     <>
-      <section className={styles.top}>
-        <div>
-          <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
-          <p className={styles.description}>
-            私たちは市場をリードしているグローバルテックカンパニーです。
-          </p>
-        </div>
-        <Image
-          className={styles.bgimg}
-          src="/img-mv.jpg"
-          alt=""
-          width={4000}
-          height={1200}
-        />
-      </section>
+      <Profile />
+      <GitHubContributions />
       <section className={styles.news}>
         <h2 className={styles.newsTitle}>News</h2>
         <NewsList news={data.contents} />
@@ -36,7 +23,6 @@ export default async function Home() {
           <ButtonLink href="/news">もっと見る</ButtonLink>
         </div>
       </section>
-      <GitHubContributions />
     </>
   );
 }

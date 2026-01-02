@@ -10,8 +10,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  turbopack: {
-    root: __dirname,
+  experimental: {
+    // メモリ使用量を削減
+    workerThreads: false,
+    cpus: 1,
   },
 };
 

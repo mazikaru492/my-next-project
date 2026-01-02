@@ -6,9 +6,8 @@
     "node": ">=20 <23"
   },
   "scripts": {
-    "dev": "next dev --disable-source-maps",
-    "dev:webpack": "next dev --webpack --disable-source-maps",
-    "dev:turbo": "next dev --turbo --disable-source-maps",
+    "dev": "node --max-old-space-size=2048 node_modules/next/dist/bin/next dev --webpack --disable-source-maps",
+    "dev:turbo": "node --max-old-space-size=2048 node_modules/next/dist/bin/next dev --turbo --disable-source-maps",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
