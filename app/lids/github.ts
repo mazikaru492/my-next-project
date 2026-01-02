@@ -21,7 +21,7 @@ function toIsoUtc(date: Date): string {
 }
 
 export function getDefaultGitHubLogin(): string | undefined {
-  return process.env.GITHUB_USERNAME;
+  return process.env.GITHUB_USERNAME ?? "mazikaru492";
 }
 
 export async function getGitHubContributionCalendar(params: {

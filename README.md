@@ -21,10 +21,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 トップページに「GitHub への貢献」セクションを表示します。
 
 - 推奨（年間の貢献数 + カレンダーを正確に表示）
-  - `GITHUB_USERNAME`: GitHub のユーザー名
+  - `GITHUB_USERNAME`: GitHub のユーザー名（未設定なら `mazikaru492`）
   - `GITHUB_TOKEN`: GitHub Personal Access Token（`read:user` で OK）
 - トークン未設定の場合
-  - `GITHUB_USERNAME` があれば、外部 SVG（軽量）でフォールバック表示します
+  - 外部 SVG（軽量）でフォールバック表示します
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

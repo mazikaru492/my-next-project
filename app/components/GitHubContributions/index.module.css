@@ -86,17 +86,29 @@
 
 .day[data-level="1"] {
   background: var(--color-border);
-  background: color-mix(in srgb, var(--color-bg-painted) 15%, var(--color-bg-main));
+  background: color-mix(
+    in srgb,
+    var(--color-bg-painted) 15%,
+    var(--color-bg-main)
+  );
 }
 
 .day[data-level="2"] {
   background: var(--color-border);
-  background: color-mix(in srgb, var(--color-bg-painted) 30%, var(--color-bg-main));
+  background: color-mix(
+    in srgb,
+    var(--color-bg-painted) 30%,
+    var(--color-bg-main)
+  );
 }
 
 .day[data-level="3"] {
   background: var(--color-border);
-  background: color-mix(in srgb, var(--color-bg-painted) 50%, var(--color-bg-main));
+  background: color-mix(
+    in srgb,
+    var(--color-bg-painted) 50%,
+    var(--color-bg-main)
+  );
 }
 
 .day[data-level="4"] {
@@ -130,17 +142,29 @@
 
 .legendSwatch[data-level="1"] {
   background: var(--color-border);
-  background: color-mix(in srgb, var(--color-bg-painted) 15%, var(--color-bg-main));
+  background: color-mix(
+    in srgb,
+    var(--color-bg-painted) 15%,
+    var(--color-bg-main)
+  );
 }
 
 .legendSwatch[data-level="2"] {
   background: var(--color-border);
-  background: color-mix(in srgb, var(--color-bg-painted) 30%, var(--color-bg-main));
+  background: color-mix(
+    in srgb,
+    var(--color-bg-painted) 30%,
+    var(--color-bg-main)
+  );
 }
 
 .legendSwatch[data-level="3"] {
   background: var(--color-border);
-  background: color-mix(in srgb, var(--color-bg-painted) 50%, var(--color-bg-main));
+  background: color-mix(
+    in srgb,
+    var(--color-bg-painted) 50%,
+    var(--color-bg-main)
+  );
 }
 
 .legendSwatch[data-level="4"] {
