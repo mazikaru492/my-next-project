@@ -5,6 +5,7 @@ import NewsList from "@/app/components/NewsList";
 import ButtonLink from "@/app/components/ButtonLink";
 import GitHubContributions from "@/app/components/GitHubContributions";
 import Profile from "@/app/components/Profile";
+import TechStackMarquee from "@/app/components/TechStackMarquee";
 
 export const revalidate = 60;
 
@@ -12,6 +13,7 @@ export default async function Home() {
   const data = await getNewsList({
     limit: TOP_NEWS_LIMIT,
   });
+
   return (
     <>
       <Profile />
@@ -19,6 +21,8 @@ export default async function Home() {
       <div className={styles.sectionDivider} aria-hidden />
 
       <GitHubContributions />
+
+      <TechStackMarquee />
 
       <div className={styles.sectionDivider} aria-hidden />
 
