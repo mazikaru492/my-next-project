@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <nav className={styles.nav}>
-        <ul className={styles.item}>
+        <ul className={styles.items}>
           <li className={styles.item}>
             <Link href="/news">ニュース</Link>
           </li>

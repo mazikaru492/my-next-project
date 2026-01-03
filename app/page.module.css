@@ -47,16 +47,15 @@
 
 @media (max-width: 640px) {
   .top {
-    padding: 120px;
+    padding: 120px 20px;
   }
   .title {
     font-size: 2rem;
     text-align: left;
   }
   .description {
-    text-align: center;
-    font-size: 0.9rem;
     text-align: left;
+    font-size: 0.9rem;
   }
 
   .bgimg {
@@ -74,11 +73,19 @@
 
   .news {
     width: calc(100% - 32px);
-    padding: 16px 24px;
+    margin: 16px auto 0;
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .newsTitle {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
   }
 
   .sectionDivider {
     width: 100%;
+    margin: 16px 0 0;
   }
 
   .newsLink {
@@ -86,6 +93,7 @@
     right: auto;
     bottom: auto;
     margin-top: 16px;
+    justify-content: center;
   }
 }
 
@@ -109,6 +117,15 @@
 }
 @media (max-width: 1000px) {
   .news {
-    width: calc(100% - 160px);
+    width: calc(100% - 80px);
+    margin: 20px auto 0;
+    padding: 24px 32px;
+  }
+}
+@media (max-width: 768px) {
+  .news {
+    width: calc(100% - 48px);
+    margin: 18px auto 0;
+    padding: 20px 24px;
   }
 }
