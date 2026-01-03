@@ -1,8 +1,9 @@
 import { createClient } from "microcms-js-sdk";
 import type {
-  MicroCMSQueries,
   MicroCMSImage,
   MicroCMSListContent,
+  MicroCMSListResponse,
+  MicroCMSQueries,
 } from "microcms-js-sdk";
 
 export type Member = {
@@ -23,25 +24,53 @@ export type News = {
   thumbnail?: MicroCMSImage;
   category?: Category;
 } & MicroCMSListContent;
-if (!process.env.MICROCMS_SERVICE_DOMAIN) {
-  throw new Error("MICROCMS_SERVICE_DOMAIN is required");
-}
-if (!process.env.MICROCMS_API_KEY) {
-  throw new Error("MICROCMS_API_KEY is required");
-}
-const client = createClient({
-  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
-  apiKey: process.env.MICROCMS_API_KEY,
+
+const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN;
+const apiKey = process.env.MICROCMS_API_KEY;
+const isConfigured = Boolean(serviceDomain && apiKey);
+
+let client: ReturnType<typeof createClient> | null = null;
+
+const getClient = () => {
+  if (client) return client;
+  if (!isConfigured) {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error(
+        "MICROCMS_SERVICE_DOMAIN と MICROCMS_API_KEY が必要です（.env.local を確認してください）"
+      );
+    }
+    console.warn(
+      "[microcms] MICROCMS_SERVICE_DOMAIN / MICROCMS_API_KEY が未設定のため、空データでフォールバックします"
+    );
+    return null;
+  }
+  client = createClient({
+    serviceDomain: serviceDomain!,
+    apiKey: apiKey!,
+  });
+  return client;
+};
+
+const emptyList = <T>(): MicroCMSListResponse<T> => ({
+  contents: [],
+  totalCount: 0,
+  offset: 0,
+  limit: 0,
 });
+
 export const getMembers = async (queries?: MicroCMSQueries) => {
-  const listData = await client.getList<Member>({
+  const c = getClient();
+  if (!c) return emptyList<Member>();
+  const listData = await c.getList<Member>({
     endpoint: "members",
     queries,
   });
   return listData;
 };
 export const getNewsList = async (queries?: MicroCMSQueries) => {
-  const listData = await client.getList<News>({
+  const c = getClient();
+  if (!c) return emptyList<News>();
+  const listData = await c.getList<News>({
     endpoint: "news",
     queries,
   });
@@ -51,7 +80,9 @@ export const getNewsDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  const detailData = await client.getListDetail<News>({
+  const c = getClient();
+  if (!c) return null;
+  const detailData = await c.getListDetail<News>({
     endpoint: "news",
     contentId,
     queries,
@@ -65,7 +96,9 @@ export const getNewsDetail = async (
 };
 
 export const getCategories = async (queries?: MicroCMSQueries) => {
-  const listData = await client.getList<Category>({
+  const c = getClient();
+  if (!c) return emptyList<Category>();
+  const listData = await c.getList<Category>({
     endpoint: "categories",
     queries,
   });
@@ -76,7 +109,15 @@ export const getCategoryDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  const detailData = await client.getListDetail<Category>({
+  const c = getClient();
+  if (!c) {
+    return Promise.reject(
+      new Error(
+        "microCMS が未設定です（MICROCMS_SERVICE_DOMAIN / MICROCMS_API_KEY）"
+      )
+    );
+  }
+  const detailData = await c.getListDetail<Category>({
     endpoint: "categories",
     contentId,
     queries,

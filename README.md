@@ -26,6 +26,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - トークン未設定の場合
   - 外部 SVG（軽量）でフォールバック表示します
 
+## microCMS
+
+本番環境では microCMS の設定が必須です。
+
+- `MICROCMS_SERVICE_DOMAIN`: サービスドメイン
+- `MICROCMS_API_KEY`: API キー
+
+ローカル開発では未設定でも起動できます（空データでフォールバックします）。
+
+設定する場合は `.env.local` を作成し、[.env.example](.env.example) を参考に値を入れてください。
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
