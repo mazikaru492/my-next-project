@@ -516,7 +516,7 @@ function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
   const repeated = Array(20).fill(items).flat();
 
   return (
-    <div className="w-full overflow-hidden bg-black">
+    <div className="w-full overflow-hidden">
       <div
         className={
           "flex w-max items-center gap-16 will-change-transform hover:[animation-play-state:paused] " +
@@ -555,19 +555,19 @@ function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
 
 export default function TechStackMarquee() {
   return (
-    <section className="w-full max-w-none bg-[var(--color-bg-sub)] py-10">
+    <section className="w-full max-w-none py-10">
       <div className="mx-auto w-full max-w-none px-6">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-white">
             Tech Stack
           </h2>
-          <p className="mt-2 text-sm text-white/60">
-            技術スタック（無限スクロール）
-          </p>
+          <p className="mt-2 text-sm text-white/60"></p>
+          <br></br>
         </div>
 
         <div className="mt-8 w-full max-w-none space-y-6">
           <MarqueeRow items={ROW_1} />
+          <br></br>
           <MarqueeRow items={ROW_2} reverse />
         </div>
       </div>

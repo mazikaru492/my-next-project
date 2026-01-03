@@ -18,8 +18,8 @@ module.exports = {
         },
       },
       animation: {
-        marquee: "marquee 40s linear infinite",
-        "marquee-reverse": "marquee-reverse 40s linear infinite",
+        marquee: "marquee 206s linear infinite",
+        "marquee-reverse": "marquee-reverse 206s linear infinite",
       },
     },
   },
