@@ -171,6 +171,26 @@
   line-height: 1.6;
 }
 
+.kaliLinkRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.kaliLink {
+  color: var(--color-text-unpainted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 255, 204, 0.35);
+}
+
+.kaliLink:hover {
+  color: var(--color-accent-green);
+  border-bottom-color: var(--color-accent-green);
+}
+
 .kaliPrompt {
   color: var(--color-accent-green);
 }

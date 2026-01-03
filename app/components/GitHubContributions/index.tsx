@@ -159,6 +159,18 @@ export default async function GitHubContributions({
           <span className={styles.kaliTyping} />
           <span className={styles.kaliCursor} />
         </div>
+
+        <div className={styles.kaliLinkRow}>
+          <span className={styles.kaliPrompt}>$</span>
+          <a
+            className={styles.kaliLink}
+            href={`https://github.com/${encodeURIComponent(resolvedLogin)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/{resolvedLogin}
+          </a>
+        </div>
       </div>
     </section>
   );
