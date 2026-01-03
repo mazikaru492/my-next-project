@@ -519,7 +519,7 @@ function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
     <div className="w-full overflow-hidden">
       <div
         className={
-          "flex w-max items-center gap-4 md:gap-16 will-change-transform hover:[animation-play-state:paused] " +
+          "flex w-max items-center gap-3 md:gap-16 will-change-transform hover:[animation-play-state:paused] " +
           (reverse ? "animate-marquee-reverse" : "animate-marquee")
         }
       >
@@ -539,10 +539,10 @@ function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
               className="shrink-0 flex flex-col items-center justify-center no-underline opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300"
             >
               <item.Icon
-                className={`h-8 w-8 md:h-12 md:w-12 ${item.colorClass}`}
+                className={`h-9 w-9 md:h-12 md:w-12 ${item.colorClass}`}
                 aria-hidden
               />
-              <span className="text-xs md:text-sm font-medium text-gray-300 mt-1 md:mt-2">
+              <span className="text-[10px] md:text-sm font-medium text-gray-300 mt-1 md:mt-2">
                 {item.label}
               </span>
             </a>
