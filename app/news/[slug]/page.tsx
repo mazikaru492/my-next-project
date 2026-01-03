@@ -5,16 +5,21 @@ import ButtonLink from "@/app/components/ButtonLink";
 import style from "./page.module.css";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
-  searchParams: {
+  }>;
+  searchParams?: Promise<{
     dk?: string;
-  };
+  }>;
 };
 
 export default async function Page({ params, searchParams }: Props) {
-  const data = await getNewsDetail(params.slug, { draftKey: searchParams.dk });
+  const resolvedParams = await params;
+  const resolvedSearchParams = (await searchParams) ?? {};
+
+  const data = await getNewsDetail(resolvedParams.slug, {
+    draftKey: resolvedSearchParams.dk,
+  });
 
   if (!data) {
     notFound();
