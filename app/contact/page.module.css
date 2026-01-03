@@ -9,49 +9,8 @@
   color: var(--color-text-unpainted);
 }
 
-.email {
-  text-align: center;
-  margin: -16px 0 32px;
-  color: var(--color-text-unpainted);
-}
-
-.emailLink {
-  color: var(--color-text-unpainted);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-/* HubSpot埋め込みフォームの文字色が暗くなるのを防ぐ */
-.container :global(.hs-form-frame) {
-  color: var(--color-text-unpainted);
-}
-
-.container :global(.hs-form-frame h1),
-.container :global(.hs-form-frame h2),
-.container :global(.hs-form-frame h3),
-.container :global(.hs-form-frame p),
-.container :global(.hs-form-frame span),
-.container :global(.hs-form-frame label),
-.container :global(.hs-form-frame legend),
-.container :global(.hs-form-frame .hs-richtext) {
-  color: var(--color-text-unpainted) !important;
-}
-
-.container :global(.hs-form-frame a) {
-  color: var(--color-text-unpainted) !important;
-}
-
-.container :global(.hs-form-frame .hs-error-msg),
-.container :global(.hs-form-frame .hs-error-msgs label) {
-  color: var(--color-text-unpainted) !important;
-}
-
 @media (max-width: 640px) {
   .text {
-    text-align: left;
-  }
-
-  .email {
     text-align: left;
   }
 }
