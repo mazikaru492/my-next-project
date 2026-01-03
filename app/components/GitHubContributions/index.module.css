@@ -1,7 +1,7 @@
 .container {
   position: relative;
   background-color: var(--color-bg-sub);
-  width: 840px;
+  width: min(100%, 1100px);
   margin: 24px auto 0;
   padding: 24px 40px;
   border-radius: var(--border-radius);
@@ -175,6 +175,83 @@
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.kali {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: var(--border-radius);
+  background: var(--color-bg-main);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+}
+
+.kaliHeader {
+  color: var(--color-text-sub);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.kaliLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-unpainted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.kaliPrompt {
+  color: var(--color-text-unpainted);
+}
+
+.kaliTyping {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.kaliTyping::before {
+  content: "sudo nmap -A github.com";
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: kaliTyping 5s steps(22, end) infinite;
+}
+
+.kaliCursor {
+  display: inline-block;
+  width: 10px;
+  height: 1em;
+  background: var(--color-text-unpainted);
+  animation: kaliBlink 1s steps(1, end) infinite;
+}
+
+@keyframes kaliTyping {
+  0% {
+    width: 0;
+  }
+  45% {
+    width: 22ch;
+  }
+  70% {
+    width: 22ch;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes kaliBlink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 1000px) {

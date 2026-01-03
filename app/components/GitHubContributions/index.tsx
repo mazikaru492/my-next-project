@@ -151,6 +151,15 @@ export default async function GitHubContributions({
           <span>多い</span>
         </div>
       </div>
+
+      <div className={styles.kali} aria-hidden>
+        <div className={styles.kaliHeader}>kali@security:~$</div>
+        <div className={styles.kaliLine}>
+          <span className={styles.kaliPrompt}>$</span>
+          <span className={styles.kaliTyping} />
+          <span className={styles.kaliCursor} />
+        </div>
+      </div>
     </section>
   );
 }
