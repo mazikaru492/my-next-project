@@ -1,27 +1,49 @@
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiReact,
+  SiNodedotjs,
+  SiTailwindcss,
+  SiGithub,
+  SiDocker,
+  SiLinux,
+  SiGnubash,
+  SiNginx,
+  SiPostgresql,
+  SiRedis,
+  SiGraphql,
+} from "react-icons/si";
+import {
+  RiShieldKeyholeLine,
+  RiGlobalLine,
+  RiPagesLine,
+} from "react-icons/ri";
+
 type Item = {
   label: string;
+  Icon: React.ComponentType<{ className?: string }>;
 };
 
 const ROW_1: Item[] = [
-  { label: "Next.js" },
-  { label: "TypeScript" },
-  { label: "React" },
-  { label: "Node.js" },
-  { label: "Tailwind CSS" },
-  { label: "microCMS" },
-  { label: "GitHub" },
-  { label: "Docker" },
+  { label: "Next.js", Icon: SiNextdotjs },
+  { label: "TypeScript", Icon: SiTypescript },
+  { label: "React", Icon: SiReact },
+  { label: "Node.js", Icon: SiNodedotjs },
+  { label: "Tailwind CSS", Icon: SiTailwindcss },
+  { label: "microCMS", Icon: RiPagesLine },
+  { label: "GitHub", Icon: SiGithub },
+  { label: "Docker", Icon: SiDocker },
 ];
 
 const ROW_2: Item[] = [
-  { label: "Linux" },
-  { label: "Bash" },
-  { label: "Nginx" },
-  { label: "PostgreSQL" },
-  { label: "Redis" },
-  { label: "GraphQL" },
-  { label: "Web Security" },
-  { label: "Networking" },
+  { label: "Linux", Icon: SiLinux },
+  { label: "Bash", Icon: SiGnubash },
+  { label: "Nginx", Icon: SiNginx },
+  { label: "PostgreSQL", Icon: SiPostgresql },
+  { label: "Redis", Icon: SiRedis },
+  { label: "GraphQL", Icon: SiGraphql },
+  { label: "Web Security", Icon: RiShieldKeyholeLine },
+  { label: "Networking", Icon: RiGlobalLine },
 ];
 
 function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
@@ -38,8 +60,9 @@ function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
         {doubled.map((item, index) => (
           <div
             key={`${item.label}-${index}`}
-            className="shrink-0 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90"
+            className="flex shrink-0 items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90"
           >
+            <item.Icon className="h-4 w-4 text-white/75" aria-hidden />
             {item.label}
           </div>
         ))}
