@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kali Terminal Portfolio</title>
+    <style>
+      :root {
+        --bg: #0d1117;
+        --terminal-bg: #161b22;
+        --text: #e6e6e6;
+        --muted: rgba(230, 230, 230, 0.75);
+        --accent: #00ffcc;
+        --border: rgba(0, 255, 204, 0.25);
+        --shadow: rgba(0, 255, 204, 0.22);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+      }
+
+      .stage {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 18px;
+      }
+
+      .terminal {
+        width: min(980px, 100%);
+        background: var(--terminal-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: 0 0 0 1px rgba(0, 255, 204, 0.08), 0 0 28px var(--shadow);
+        overflow: hidden;
+      }
+
+      .titlebar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(0, 255, 204, 0.12);
+        background: rgba(13, 17, 23, 0.35);
+      }
+
+      .window-controls {
+        display: flex;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        display: inline-block;
+      }
+
+      .dot.red {
+        background: #ff5f56;
+      }
+
+      .dot.yellow {
+        background: #ffbd2e;
+      }
+
+      .dot.green {
+        background: #27c93f;
+      }
+
+      .title {
+        font-size: 12px;
+        color: var(--muted);
+        letter-spacing: 0.02em;
+        user-select: none;
+      }
+
+      .screen {
+        padding: 18px 18px 20px;
+        min-height: 320px;
+      }
+
+      .line {
+        display: block;
+        white-space: pre-wrap;
+        word-break: break-word;
+        line-height: 1.65;
+        font-size: 15px;
+      }
+
+      .line + .line {
+        margin-top: 6px;
+      }
+
+      .prompt {
+        color: var(--accent);
+      }
+
+      .output {
+        color: var(--text);
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 10px;
+        margin-left: 2px;
+        color: var(--accent);
+        animation: blink 1s steps(1, end) infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        49% {
+          opacity: 1;
+        }
+        50%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* small screens */
+      @media (max-width: 560px) {
+        .screen {
+          padding: 14px 14px 16px;
+        }
+        .line {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <section
+        class="terminal"
+        aria-label="Kali Linux terminal themed portfolio"
+      >
+        <header class="titlebar" aria-hidden="true">
+          <div class="window-controls">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="title">root@kali:~ — terminal</div>
+          <div style="width: 52px"></div>
+        </header>
+
+        <div id="screen" class="screen"></div>
+      </section>
+    </main>
+
+    <script>
+      const scriptLines = [
+        { kind: "cmd", prompt: "root@kali:~#", command: "whoami" },
+        { kind: "out", text: "Security Engineer / Pentester" },
+        { kind: "cmd", prompt: "root@kali:~#", command: "cat skills.txt" },
+        { kind: "out", text: "[+] Kali Linux & Network Analysis" },
+        { kind: "out", text: "[+] Python / Shell Scripting" },
+        { kind: "cmd", prompt: "root@kali:~#", command: "./welcome.sh" },
+        { kind: "out", text: "Welcome to my portfolio." },
+      ];
+
+      const screen = document.getElementById("screen");
+
+      const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+      function createLineElement(kind) {
+        const line = document.createElement("div");
+        line.className = "line";
+        if (kind === "out") {
+          line.classList.add("output");
+        }
+        return line;
+      }
+
+      function attachCursor(target) {
+        const cursor = document.createElement("span");
+        cursor.className = "cursor";
+        cursor.textContent = "|";
+        target.appendChild(cursor);
+        return cursor;
+      }
+
+      async function typeText(target, text, { charDelay = 28 } = {}) {
+        for (const ch of text) {
+          target.textContent += ch;
+          await sleep(charDelay);
+        }
+      }
+
+      async function run() {
+        // Intro spacing
+        const intro = createLineElement("out");
+        intro.innerHTML = '<span class="muted">Initializing session...</span>';
+        screen.appendChild(intro);
+        await sleep(450);
+
+        for (const item of scriptLines) {
+          const line = createLineElement(item.kind);
+
+          let typingTarget = line;
+          if (item.kind === "cmd") {
+            const prompt = document.createElement("span");
+            prompt.className = "prompt";
+            prompt.textContent = item.prompt + " ";
+            line.appendChild(prompt);
+
+            const command = document.createElement("span");
+            line.appendChild(command);
+            typingTarget = command;
+
+            screen.appendChild(line);
+            const cursor = attachCursor(line);
+            await typeText(typingTarget, item.command, { charDelay: 26 });
+            cursor.remove();
+          } else {
+            screen.appendChild(line);
+            const cursor = attachCursor(line);
+            await typeText(typingTarget, item.text, { charDelay: 18 });
+            cursor.remove();
+          }
+
+          // keep the newest line visible
+          line.scrollIntoView({ block: "end", behavior: "smooth" });
+          await sleep(item.kind === "cmd" ? 220 : 160);
+        }
+
+        // Final idle prompt with blinking cursor
+        const finalLine = createLineElement("cmd");
+        const finalPrompt = document.createElement("span");
+        finalPrompt.className = "prompt";
+        finalPrompt.textContent = "root@kali:~# ";
+        finalLine.appendChild(finalPrompt);
+        screen.appendChild(finalLine);
+        attachCursor(finalLine);
+      }
+
+      run();
+    </script>
+  </body>
+</html>

@@ -16,6 +16,14 @@ export default async function Home() {
     <>
       <Profile />
       <GitHubContributions />
+      <section className={styles.kaliEmbed} aria-label="Kali terminal intro">
+        <iframe
+          className={styles.kaliFrame}
+          src="/kali-terminal-portfolio.html"
+          title="Kali Linux terminal styled introduction"
+          loading="lazy"
+        />
+      </section>
       <section className={styles.news}>
         <h2 className={styles.newsTitle}>News</h2>
         <NewsList news={data.contents} />
