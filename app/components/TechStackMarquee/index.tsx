@@ -49,42 +49,33 @@ const ROW_2: Item[] = [
 ];
 
 function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
-  const doubled = [...items, ...items];
+  const repeated = [...items, ...items, ...items, ...items, ...items, ...items];
 
   return (
-    <div className="relative overflow-hidden rounded-xl">
+    <div className="relative overflow-hidden [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
       <div
         className={
-          "flex w-[200%] gap-4 will-change-transform hover:[animation-play-state:paused] " +
+          "flex w-max min-w-full items-center gap-16 will-change-transform hover:[animation-play-state:paused] " +
           (reverse ? "animate-marquee-reverse" : "animate-marquee")
         }
       >
-        {doubled.map((item, index) => (
+        {repeated.map((item, index) => (
           <div
             key={`${item.label}-${index}`}
-            className="flex h-16 shrink-0 items-center gap-3 whitespace-nowrap rounded-full border border-white/20 bg-white/[0.08] px-7 text-base font-semibold text-white shadow-sm"
+            className="shrink-0 opacity-80 transition-opacity hover:opacity-100"
           >
-            <item.Icon className={`h-8 w-8 ${item.colorClass}`} aria-hidden />
-            <span className="text-white">{item.label}</span>
+            <item.Icon className={`h-12 w-12 ${item.colorClass}`} aria-hidden />
+            <span className="sr-only">{item.label}</span>
           </div>
         ))}
       </div>
-
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[var(--color-bg-sub)] to-transparent"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[var(--color-bg-sub)] to-transparent"
-        aria-hidden
-      />
     </div>
   );
 }
 
 export default function TechStackMarquee() {
   return (
-    <section className="w-full bg-[var(--color-bg-sub)] py-16">
+    <section className="w-full bg-[var(--color-bg-sub)] py-10">
       <div className="mx-auto w-full max-w-6xl px-6">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-white">
@@ -95,7 +86,7 @@ export default function TechStackMarquee() {
           </p>
         </div>
 
-        <div className="ml-auto mr-0 mt-10 max-w-5xl space-y-5">
+        <div className="ml-auto mr-0 mt-8 w-full max-w-5xl space-y-6">
           <MarqueeRow items={ROW_1} />
           <MarqueeRow items={ROW_2} reverse />
         </div>

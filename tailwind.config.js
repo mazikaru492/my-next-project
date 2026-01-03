@@ -10,16 +10,16 @@ module.exports = {
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(-16.666667%)" },
         },
         "marquee-reverse": {
-          "0%": { transform: "translateX(-50%)" },
+          "0%": { transform: "translateX(-16.666667%)" },
           "100%": { transform: "translateX(0)" },
         },
       },
       animation: {
-        marquee: "marquee 55s linear infinite",
-        "marquee-reverse": "marquee-reverse 55s linear infinite",
+        marquee: "marquee 22s linear infinite",
+        "marquee-reverse": "marquee-reverse 22s linear infinite",
       },
     },
   },
