@@ -17,6 +17,25 @@
   --color-current: #222;
   --color-button-primary: #333;
   --border-radius: 4px;
+
+  --color-accent-green: #00c853;
+  --color-contrib-0: var(--color-border-light);
+  --color-contrib-1: color-mix(
+    in srgb,
+    var(--color-accent-green) 22%,
+    var(--color-bg-main)
+  );
+  --color-contrib-2: color-mix(
+    in srgb,
+    var(--color-accent-green) 38%,
+    var(--color-bg-main)
+  );
+  --color-contrib-3: color-mix(
+    in srgb,
+    var(--color-accent-green) 58%,
+    var(--color-bg-main)
+  );
+  --color-contrib-4: var(--color-accent-green);
 }
 
 * {

@@ -77,42 +77,27 @@
   width: 18px;
   height: 18px;
   border-radius: 3px;
-  background: var(--color-border-light);
+  background: var(--color-contrib-0);
 }
 
 .day[data-level="0"] {
-  background: var(--color-border-light);
+  background: var(--color-contrib-0);
 }
 
 .day[data-level="1"] {
-  background: var(--color-border);
-  background: color-mix(
-    in srgb,
-    var(--color-bg-painted) 15%,
-    var(--color-bg-main)
-  );
+  background: var(--color-contrib-1);
 }
 
 .day[data-level="2"] {
-  background: var(--color-border);
-  background: color-mix(
-    in srgb,
-    var(--color-bg-painted) 30%,
-    var(--color-bg-main)
-  );
+  background: var(--color-contrib-2);
 }
 
 .day[data-level="3"] {
-  background: var(--color-border);
-  background: color-mix(
-    in srgb,
-    var(--color-bg-painted) 50%,
-    var(--color-bg-main)
-  );
+  background: var(--color-contrib-3);
 }
 
 .day[data-level="4"] {
-  background: var(--color-bg-painted);
+  background: var(--color-contrib-4);
 }
 
 .legend {
@@ -137,38 +122,23 @@
 }
 
 .legendSwatch[data-level="0"] {
-  background: var(--color-border-light);
+  background: var(--color-contrib-0);
 }
 
 .legendSwatch[data-level="1"] {
-  background: var(--color-border);
-  background: color-mix(
-    in srgb,
-    var(--color-bg-painted) 15%,
-    var(--color-bg-main)
-  );
+  background: var(--color-contrib-1);
 }
 
 .legendSwatch[data-level="2"] {
-  background: var(--color-border);
-  background: color-mix(
-    in srgb,
-    var(--color-bg-painted) 30%,
-    var(--color-bg-main)
-  );
+  background: var(--color-contrib-2);
 }
 
 .legendSwatch[data-level="3"] {
-  background: var(--color-border);
-  background: color-mix(
-    in srgb,
-    var(--color-bg-painted) 50%,
-    var(--color-bg-main)
-  );
+  background: var(--color-contrib-3);
 }
 
 .legendSwatch[data-level="4"] {
-  background: var(--color-bg-painted);
+  background: var(--color-contrib-4);
 }
 
 .fallbackImg {
@@ -202,7 +172,7 @@
 }
 
 .kaliPrompt {
-  color: var(--color-text-unpainted);
+  color: var(--color-accent-green);
 }
 
 .kaliTyping {
