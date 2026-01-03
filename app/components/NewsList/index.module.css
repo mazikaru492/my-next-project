@@ -1,8 +1,12 @@
 .newsItem {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 24px;
+  margin-bottom: 24px;
 }
 .newsItem:last-child {
   border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .list {
   border-bottom: 1px solid var(--color-border-light);
@@ -14,7 +18,7 @@
   display: flex;
   align-items: flex-start;
   gap: 40px;
-  padding: 24px 0;
+  padding: 0;
 }
 .image {
   width: 200px;
