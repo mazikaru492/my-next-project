@@ -147,6 +147,14 @@
   height: auto;
 }
 
+.divider {
+  height: 1px;
+  background: var(--color-text-unpainted);
+  opacity: 0.22;
+  margin: 16px -40px;
+  width: calc(100% + 80px);
+}
+
 .kali {
   margin-top: 18px;
   padding: 14px 16px;
@@ -172,19 +180,27 @@
   font-size: 22px;
   font-weight: 800;
   letter-spacing: 0.01em;
-  box-shadow: 0 0 0 1px rgba(0, 255, 204, 0.08), 0 0 18px rgba(0, 255, 204, 0.14);
+  box-shadow: 0 0 0 1px rgba(0, 255, 204, 0.08),
+    0 0 18px rgba(0, 255, 204, 0.14);
 }
 
 .kaliLinkBig:hover {
   color: var(--color-accent-green);
   border-color: rgba(0, 255, 204, 0.45);
-  box-shadow: 0 0 0 1px rgba(0, 255, 204, 0.14), 0 0 26px rgba(0, 255, 204, 0.22);
+  box-shadow: 0 0 0 1px rgba(0, 255, 204, 0.14),
+    0 0 26px rgba(0, 255, 204, 0.22);
 }
 
 @media (max-width: 640px) {
   .kaliLinkBig {
     font-size: 18px;
     padding: 12px 14px;
+  }
+
+  .divider {
+    margin-left: -24px;
+    margin-right: -24px;
+    width: calc(100% + 48px);
   }
 }
 

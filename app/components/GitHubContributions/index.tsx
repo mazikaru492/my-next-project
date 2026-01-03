@@ -152,6 +152,8 @@ export default async function GitHubContributions({
         </div>
       </div>
 
+      <div className={styles.divider} aria-hidden />
+
       <div className={styles.kali} aria-hidden>
         <div className={styles.kaliHeader}>kali@security:~$</div>
         <a
