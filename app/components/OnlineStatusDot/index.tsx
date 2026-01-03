@@ -11,14 +11,11 @@ export default function OnlineStatusDot({ className }: Props) {
 
   useEffect(() => {
     const checkInternet = async () => {
-      // まずはブラウザの即時フラグで判定
       if (!navigator.onLine) {
         setOnline(false);
         return;
       }
 
-      // LANは繋がっていてもインターネット断が起きる環境があるため疎通チェック
-      // 3rd-party へ定期アクセスしないため、自サイトの /api/ping を叩く
       const controller = new AbortController();
       const timeoutId = window.setTimeout(() => controller.abort(), 2500);
       try {
@@ -36,7 +33,6 @@ export default function OnlineStatusDot({ className }: Props) {
     };
 
     const handleBrowserStatusChange = () => {
-      // online/offline イベントでは即時反映、その後疎通で確定
       void checkInternet();
     };
 
@@ -44,7 +40,6 @@ export default function OnlineStatusDot({ className }: Props) {
     window.addEventListener("online", handleBrowserStatusChange);
     window.addEventListener("offline", handleBrowserStatusChange);
 
-    // 念のため定期チェック（イベントが発火しない環境対策）
     const intervalId = window.setInterval(() => {
       void checkInternet();
     }, 10_000);

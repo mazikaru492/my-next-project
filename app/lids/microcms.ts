@@ -125,5 +125,4 @@ export const getCategoryDetail = async (
   return detailData;
 };
 
-// 互換用エイリアス
 export const getCategorise = getCategoryDetail;

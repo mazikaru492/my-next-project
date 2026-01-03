@@ -15,7 +15,6 @@ export default function Profile() {
           className={styles.avatarWrapper}
         >
           <div className={styles.avatar}>
-            {/* プレースホルダー: 実際の画像は /public/avatar.jpg に配置 */}
             <svg
               viewBox="0 0 200 200"
               fill="none"

@@ -4,8 +4,7 @@ import { MEMBERS_LIST_LIMIT } from "@/app/constants";
 import style from "./page.module.css";
 import Hero from "@/app/components/Hero";
 
-// Revalidate CMS data periodically so updates show on the web
-export const revalidate = 10; // seconds
+export const revalidate = 10;
 
 export default async function MembersPage() {
   const data = await getMembers({ limit: MEMBERS_LIST_LIMIT });

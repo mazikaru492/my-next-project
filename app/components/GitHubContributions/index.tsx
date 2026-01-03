@@ -61,7 +61,6 @@ export default async function GitHubContributions({
     revalidateSeconds: 60 * 60,
   });
 
-  // トークンがない/取得に失敗した場合は、軽量なSVG埋め込みにフォールバック
   if (!calendar) {
     const chartUrl = `https://ghchart.rshah.org/${encodeURIComponent(
       resolvedLogin
