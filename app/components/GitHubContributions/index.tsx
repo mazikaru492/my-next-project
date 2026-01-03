@@ -151,20 +151,6 @@ export default async function GitHubContributions({
           <span>多い</span>
         </div>
       </div>
-
-      <div className={styles.divider} aria-hidden />
-
-      <div className={styles.kali} aria-hidden>
-        <div className={styles.kaliHeader}>kali@security:~$</div>
-        <a
-          className={styles.kaliLinkBig}
-          href={`https://github.com/${encodeURIComponent(resolvedLogin)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          github.com/{resolvedLogin}
-        </a>
-      </div>
     </section>
   );
 }
