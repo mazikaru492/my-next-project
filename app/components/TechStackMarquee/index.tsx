@@ -519,7 +519,7 @@ function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
     <div className="w-full overflow-hidden">
       <div
         className={
-          "flex w-max items-center gap-16 will-change-transform hover:[animation-play-state:paused] " +
+          "flex w-max items-center gap-4 md:gap-16 will-change-transform hover:[animation-play-state:paused] " +
           (reverse ? "animate-marquee-reverse" : "animate-marquee")
         }
       >
@@ -539,10 +539,10 @@ function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
               className="shrink-0 flex flex-col items-center justify-center no-underline opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300"
             >
               <item.Icon
-                className={`h-10 w-10 ${item.colorClass}`}
+                className={`h-8 w-8 md:h-12 md:w-12 ${item.colorClass}`}
                 aria-hidden
               />
-              <span className="text-sm font-medium text-gray-300 mt-2">
+              <span className="text-xs md:text-sm font-medium text-gray-300 mt-1 md:mt-2">
                 {item.label}
               </span>
             </a>
@@ -555,17 +555,17 @@ function MarqueeRow({ items, reverse }: { items: Item[]; reverse?: boolean }) {
 
 export default function TechStackMarquee() {
   return (
-    <section className="w-full max-w-none py-10">
-      <div className="mx-auto w-full max-w-none px-6">
+    <section className="w-full max-w-none py-4 md:py-10">
+      <div className="mx-auto w-full max-w-none px-4 md:px-6">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-white">
+          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white">
             Tech Stack
           </h2>
           <p className="mt-2 text-sm text-white/60"></p>
           <br></br>
         </div>
 
-        <div className="mt-8 w-full max-w-none space-y-6">
+        <div className="mt-4 md:mt-8 w-full max-w-none space-y-3 md:space-y-6">
           <MarqueeRow items={ROW_1} />
           <br></br>
           <MarqueeRow items={ROW_2} reverse />
