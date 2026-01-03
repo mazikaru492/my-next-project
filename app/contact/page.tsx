@@ -9,6 +9,12 @@ export default function Page() {
         <br />
         内容確認後、担当者より通常3営業以内にご連絡いたします。
       </p>
+      <p className={styles.email}>
+        連絡先：
+        <a className={styles.emailLink} href="mailto:ktc25a31e0014@edu.ac.jp">
+          ktc25a31e0014@edu.ac.jp
+        </a>
+      </p>
       <HubSpotForm
         portalId="244676217"
         formId="f8ec7adb-b284-4076-93ac-188f9fd44fe1"

@@ -9,8 +9,35 @@
   color: var(--color-text-unpainted);
 }
 
+.email {
+  text-align: center;
+  margin: 0 auto 28px;
+  color: var(--color-text-unpainted);
+}
+
+.emailLink {
+  text-decoration: underline;
+}
+
+:global(.hs-form-frame) {
+  color: var(--color-text-unpainted);
+}
+
+:global(.hs-form-frame h1),
+:global(.hs-form-frame h2),
+:global(.hs-form-frame h3),
+:global(.hs-form-frame p),
+:global(.hs-form-frame span),
+:global(.hs-form-frame label) {
+  color: var(--color-text-unpainted) !important;
+}
+
 @media (max-width: 640px) {
   .text {
+    text-align: left;
+  }
+
+  .email {
     text-align: left;
   }
 }
