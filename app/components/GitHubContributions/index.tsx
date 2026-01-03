@@ -154,23 +154,14 @@ export default async function GitHubContributions({
 
       <div className={styles.kali} aria-hidden>
         <div className={styles.kaliHeader}>kali@security:~$</div>
-        <div className={styles.kaliLine}>
-          <span className={styles.kaliPrompt}>$</span>
-          <span className={styles.kaliTyping} />
-          <span className={styles.kaliCursor} />
-        </div>
-
-        <div className={styles.kaliLinkRow}>
-          <span className={styles.kaliPrompt}>$</span>
-          <a
-            className={styles.kaliLink}
-            href={`https://github.com/${encodeURIComponent(resolvedLogin)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            github.com/{resolvedLogin}
-          </a>
-        </div>
+        <a
+          className={styles.kaliLinkBig}
+          href={`https://github.com/${encodeURIComponent(resolvedLogin)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github.com/{resolvedLogin}
+        </a>
       </div>
     </section>
   );
