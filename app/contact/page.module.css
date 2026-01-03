@@ -19,16 +19,16 @@
   text-decoration: underline;
 }
 
-:global(.hs-form-frame) {
+.container :global(.hs-form-frame) {
   color: var(--color-text-unpainted);
 }
 
-:global(.hs-form-frame h1),
-:global(.hs-form-frame h2),
-:global(.hs-form-frame h3),
-:global(.hs-form-frame p),
-:global(.hs-form-frame span),
-:global(.hs-form-frame label) {
+.container :global(.hs-form-frame h1),
+.container :global(.hs-form-frame h2),
+.container :global(.hs-form-frame h3),
+.container :global(.hs-form-frame p),
+.container :global(.hs-form-frame span),
+.container :global(.hs-form-frame label) {
   color: var(--color-text-unpainted) !important;
 }
 
