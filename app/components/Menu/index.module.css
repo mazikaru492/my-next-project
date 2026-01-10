@@ -24,10 +24,12 @@
     background-color: var(--color-background);
     color: var(--color-text-unpainted);
     padding: 24px 16px;
+    pointer-events: auto;
   }
   .items {
     flex-direction: column;
     gap: 24px;
+    align-items: center;
   }
 
   .button {
